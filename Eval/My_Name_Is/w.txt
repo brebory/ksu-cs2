@@ -1,0 +1,12 @@
+ 12:16:04 up 76 days,  4:59, 10 users,  load average: 1.02, 1.04, 1.03
+USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
+sfarina  pts/1    cpe-76-188-105-6 Wed02    5days  0.05s  0.05s -bash
+sothman  pts/2    131.123.39.77:0. Sun22   13:25m 13:23m  0.00s /bin/sh ./geany
+dhaverst pts/3    daphne.sdml.cs.k 09:19    2:17m  0.29s  0.21s -bash
+dhaverst pts/4    daphne.sdml.cs.k 09:45    2:30m  0.06s  0.06s -bash
+broberto pts/5    lab216.labs.cs.k 12:04    0.00s  0.06s  0.00s w
+jcaldwel pts/6    lab203.labs.cs.k 12:00    1:26   0.06s  0.06s -bash
+bpeshel  pts/7    10.14.214.145    12:14    1.00s  0.01s  0.01s -bash
+kjoseph  pts/8    10.14.209.46     12:06    9:55   0.00s  0.00s -bash
+sothman           131.123.39.77:0  Thu13    8:05m  6:14m  0.01s pam: gdm-passwo
+sothman  pts/0    131.123.39.77:0. Thu13    3days  0.00s  0.00s /local/bin/bash
