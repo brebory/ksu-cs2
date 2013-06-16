@@ -1,11 +1,12 @@
-/*
- * Author: Brendon Roberto
- * Project: CS23001 CS II Summer 2013
- *
- * log_view.cpp
- * Implements helpful functions for parsing Apache logs.
- *
- */
+////////////////////////////////////////////////////////////
+//                                                        //
+// Author: Brendon Roberto                                //
+// Project: CS23001 CS II Summer 2013                     //
+//                                                        //
+// log_view.cpp                                           //
+// Implements helpful functions for parsing Apache logs.  //
+//                                                        //
+////////////////////////////////////////////////////////////
 
 #include <string>
 #include <iostream>
@@ -47,11 +48,11 @@ vector<string> split(const string& source, char delimiter) {
 
 Log_Entry create_Log_Entry(const string& source) {
     Log_Entry result;
-    vector<string> log_vec, date_vec;
+    vector<string> source_vec, log_vec, date_vec;
     Date logdate;
 
-    result = new Log_Entry;
-    source_vec = split(source, ' ');
+    result = new Log_Entry();
+    log_vec = split(source, ' ');
     
     result._host = source_vec.at(0);
     return result;
