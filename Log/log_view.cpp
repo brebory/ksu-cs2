@@ -19,10 +19,12 @@
 using std::string;
 using std::vector;
 using std::cout;
+using std::cerr;
 using std::endl;
 using std::atoi;
 
 string remove(const string&, const string&);
+void error_and_exit(const string&);
 
 vector<string> split(const string& source, char delimiter) {
     // Variable declarations
@@ -119,19 +121,72 @@ string remove(const string& source, const string& target) {
 
 vector<Log_Entry> parse(const string& filename) {
     vector<Log_Entry> result;
+    Log_Entry entry;
+    string input_string;
+
+    // Try to open filename, exit if unsuccessful
+    std::fstream in(filename.c_str());
+    if(!in) error_and_exit(filename);
+
+    // Get lines from input
+    while(std::getline(in, input_string)) {
+        entry = create_Log_Entry(input_string);
+
+        // Push the new entry into our vector
+        result.push_back(entry);
+    }
 
     return result;
 }
-/*
+
+void error_and_exit(const string& filename) {
+    // Couldn't open file, exit with error message
+    std::cerr << "Error: couldn't open "
+              << filename
+              << ", exiting\n";
+    exit(1);
+}
+
 void output_all(const vector<Log_Entry>& entries) {
-    return 1;
+    Log_Entry entry;
+
+    // Iterate through entries
+    for(vector<Log_Entry>::size_type i = 0, len = entries.size(); i < len; i++) {
+        entry = entries.at(i);
+
+        cout << "==============================================="   << endl
+             << "Host:\t\t\t"              << entry._host            << endl
+             << "Date:\tyear:\t\t"         << entry._date.year       << endl 
+             << "\tmonth:\t\t"             << entry._date.month      << endl
+             << "\tday:\t\t"               << entry._date.day        << endl
+             << "Time:\thour:\t\t"         << entry._time.hour       << endl
+             << "\tmin:\t\t"               << entry._time.minute     << endl
+             << "\tsec:\t\t"               << entry._time.second     << endl
+             << "Status:\t\t\t"            << entry._status          << endl
+             << "Request:\t\t"           << entry._request         << endl
+             << "Number of bytes:\t"     << entry._number_of_bytes << endl;
+    }
 }
 
 int byte_count(const vector<Log_Entry>& entries) {
-    return 1;
+    int sum = 0;
+    Log_Entry entry;
+
+    // Iterate through entries
+    for(vector<Log_Entry>::size_type i = 0, len = entries.size(); i < len; i++) {
+        entry = entries.at(i);
+        sum += entry._number_of_bytes;
+    }
+    return sum;
 }
 
 void output_hosts(const vector<Log_Entry>& entries) {
-    return 1;
+    Log_Entry entry;
+
+    // Iterate through entries
+    for(vector<Log_Entry>::size_type i = 0, len = entries.size(); i < len; i++) {
+        entry = entries.at(i);
+        cout << "HOST: " << entry._host << endl;
+    }
 }
-*/
+
