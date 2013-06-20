@@ -1,2 +1,3 @@
 package apachelog
 
+struct

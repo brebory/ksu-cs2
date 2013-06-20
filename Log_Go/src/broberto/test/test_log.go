@@ -1,6 +1,6 @@
 package main
 
-import "apachelog"
+import "broberto/apachelog"
 
 func main() {
 

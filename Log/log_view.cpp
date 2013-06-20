@@ -10,12 +10,14 @@
 
 #include <string>
 #include <iostream>
+#include <cstdlib>
 #include "log_view.h"
 
 using std::string;
 using std::vector;
 using std::cout;
 using std::endl;
+using std::atoi;
 
 string remove(const string&, const string&);
 
@@ -33,7 +35,6 @@ vector<string> split(const string& source, char delimiter) {
         string substr;
 
         substr = source.substr(last_idx, next_idx - last_idx);
-
         result.push_back(substr);
     }
 
