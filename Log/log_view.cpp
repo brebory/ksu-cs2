@@ -10,6 +10,9 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
+#include <fstream>
+#include <iomanip>
 #include <cstdlib>
 #include "log_view.h"
 
@@ -54,6 +57,12 @@ Log_Entry create_Log_Entry(const string& source) {
 
     // Split source string on spaces into constituent parts
     log_vec = split(source, ' ');
+    
+    // Make sure that log_vec has 10 entries
+    if(log_vec.size() < 10) {
+        result._number_of_bytes = 0;
+        return result;
+    }
 
     // Split substring on colons to get timestamps
     datetime_vec = split(log_vec.at(3), ':');
@@ -107,11 +116,13 @@ string remove(const string& source, const string& target) {
     }
     return result;
 }
-/*
-vector<Log_Entry> parse(const string& source) {
-    return 1;
-}
 
+vector<Log_Entry> parse(const string& filename) {
+    vector<Log_Entry> result;
+
+    return result;
+}
+/*
 void output_all(const vector<Log_Entry>& entries) {
     return 1;
 }
