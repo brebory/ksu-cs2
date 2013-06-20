@@ -1,7 +1,10 @@
 package main
 
-import "broberto/apachelog"
+import (
+    "broberto/apachelog"
+    "fmt"
+)
 
 func main() {
-
+    apachelog.Stub()
 }
