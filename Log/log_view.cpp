@@ -136,6 +136,8 @@ vector<Log_Entry> parse(const string& filename) {
         result.push_back(entry);
     }
 
+    in.close();
+
     return result;
 }
 
